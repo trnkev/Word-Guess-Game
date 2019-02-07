@@ -24,10 +24,11 @@ drawUnderscore(computerGuess);
 document.onkeyup = function(event) {
 
     var userGuess = event.key.toLowerCase();
-
+    var correctLetter = false;
 
     for (var i = 0; i < computerGuess.length; i++) {
         if (userGuess === computerGuess[i]) {
+            correctLetter = true;
             break;
         } 
     }
@@ -38,17 +39,17 @@ document.onkeyup = function(event) {
     var lossesText = document.getElementById("losses");
     lossesText.textContent = losses;
 
-    var triesText = document.getElementById("tries");
-    triesText.textContent = tries;
+    var userGuessesText = document.getElementById("guesses");
 
-    if (guesses.length > 0) {
-        guesses += ', ';
+    if (!correctLetter) {
+        if (guesses.length > 0) {
+            guesses += ', ';
+        }
+        guesses += userGuess;
+        userGuessesText.textContent = guesses;
+        --tries;
     }
 
-    guesses += userGuess;
-
-    var userGuessesText = document.getElementById("guesses");
-    userGuessesText.textContent = guesses;
-
-
+    var triesText = document.getElementById("tries");
+    triesText.textContent = tries;
 };
