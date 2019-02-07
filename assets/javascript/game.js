@@ -13,10 +13,11 @@ function random(array) {
 var computerGuess = random(bands).toLowerCase();
 
 function drawUnderscore(guess) {
+    var underscores = "";
     for (var i = 0; i < guess.length; i++) {
-        correctWord += '_ ';
+        underscores += '_ ';
     }
-    document.getElementById("word").textContent = correctWord;
+    document.getElementById("word").textContent = underscores;
 }
 
 drawUnderscore(computerGuess);
@@ -40,6 +41,7 @@ document.onkeyup = function(event) {
         userGuess = "";
         tries = 9;
         computerGuess = random(bands);
+        drawUnderscore(computerGuess);
     }
 
     var winsText = document.getElementById("wins");
@@ -54,7 +56,7 @@ document.onkeyup = function(event) {
         }
         guesses += userGuess;
         --tries;
-    }
+    } 
 
     var userGuessesText = document.getElementById("guesses");
     userGuessesText.textContent = guesses;
