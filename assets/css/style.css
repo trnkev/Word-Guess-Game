@@ -34,17 +34,22 @@ h2 {
 
 p {
     height: 20px;
+    font-family: 'Fredoka One', cursive;
+    text-align: center;
 }
 
 .container {
     width: 550px;
-    min-height: 70vh;
+    min-height: 60vh;
     margin: auto;
     border: yellow dotted 10px;
 }
 
-#track {
-    height: 50px;
-    text-align: center;
-    font-family: 'Fredoka One', cursive;
+.container > .row {
+    min-height: 25vh;
+    padding-top: 20px;
+}
+
+.container > .row p {
+    margin: 5px;
 }
