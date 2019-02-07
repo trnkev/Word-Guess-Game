@@ -26,11 +26,20 @@ document.onkeyup = function(event) {
     var userGuess = event.key.toLowerCase();
     var correctLetter = false;
 
+    // Checks letter of user's guess to word in computer's mind
     for (var i = 0; i < computerGuess.length; i++) {
         if (userGuess === computerGuess[i]) {
             correctLetter = true;
             break;
         } 
+    }
+
+    if (tries <= 0) {
+        ++losses;
+        guesses = "";
+        userGuess = "";
+        tries = 9;
+        computerGuess = random(bands);
     }
 
     var winsText = document.getElementById("wins");
@@ -39,16 +48,16 @@ document.onkeyup = function(event) {
     var lossesText = document.getElementById("losses");
     lossesText.textContent = losses;
 
-    var userGuessesText = document.getElementById("guesses");
-
     if (!correctLetter) {
         if (guesses.length > 0) {
             guesses += ', ';
         }
         guesses += userGuess;
-        userGuessesText.textContent = guesses;
         --tries;
     }
+
+    var userGuessesText = document.getElementById("guesses");
+    userGuessesText.textContent = guesses;
 
     var triesText = document.getElementById("tries");
     triesText.textContent = tries;
