@@ -33,6 +33,15 @@ function checkWord(wordA, wordB) {
     return false;
 }
 
+function gameReset() {
+    guesses = "";
+    userGuess = "";
+    tries = 9;
+    computerGuess = random(bands).toLowerCase();
+    drawUnderscore(computerGuess);
+    document.getElementById("tries").textContent = tries;
+}
+
 drawUnderscore(computerGuess);
 
 document.onkeyup = function(event) {
@@ -62,16 +71,12 @@ document.onkeyup = function(event) {
 
     if (tries <= 0) {
         ++losses;
-        guesses = "";
-        userGuess = "";
-        tries = 9;
-        computerGuess = random(bands);
-        drawUnderscore(computerGuess);
-        triesText.textContent = tries;
+        gameReset();
     }
 
     if (correctWord === computerGuess) {
         ++wins;
+        gameReset();
     }
 
     var winsText = document.getElementById("wins");
