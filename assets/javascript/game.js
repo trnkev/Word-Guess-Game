@@ -23,10 +23,10 @@ function drawUnderscore(word) {
 
 function checkWord(wordA, wordB) {
     var word = "";
-    for (var i = 0; i < wordB.length; i++) {
-        for (var j = 0; j < wordA.length; i++) {
+    for (var i = 0; i < wordA.length; i++) {
+        for (var j = 0; j < wordB.length; j++) {
             // store the correct word
-            if (wordA[j] === wordB[i]) word = word + wordA[i];
+            if (wordA[i] === wordB[j]) word = word + wordB[j];
         }
     }
     if (word === wordB) return true;
@@ -68,6 +68,10 @@ document.onkeyup = function(event) {
         computerGuess = random(bands);
         drawUnderscore(computerGuess);
         triesText.textContent = tries;
+    }
+
+    if (correctWord === computerGuess) {
+        ++wins;
     }
 
     var winsText = document.getElementById("wins");
