@@ -21,6 +21,18 @@ function drawUnderscore(word) {
     document.getElementById("word").textContent = underscores;
 }
 
+function checkWord(wordA, wordB) {
+    var word = "";
+    for (var i = 0; i < wordB.length; i++) {
+        for (var j = 0; j < wordA.length; i++) {
+            // store the correct word
+            if (wordA[j] === wordB[i]) word = word + wordA[i];
+        }
+    }
+    if (word === wordB) return true;
+    return false;
+}
+
 drawUnderscore(computerGuess);
 
 document.onkeyup = function(event) {
@@ -32,6 +44,7 @@ document.onkeyup = function(event) {
     for (var i = 0; i < computerGuess.length; i++) {
         if (userGuess === computerGuess[i]) {
             correctLetter = true;
+            correctWord = correctWord + userGuess;
             break;
         } 
     }
@@ -62,8 +75,6 @@ document.onkeyup = function(event) {
 
     var lossesText = document.getElementById("losses");
     lossesText.textContent = losses;
-
-
 
     var userGuessesText = document.getElementById("guesses");
     userGuessesText.textContent = guesses;
