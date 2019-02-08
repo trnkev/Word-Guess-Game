@@ -12,11 +12,12 @@ function random(array) {
 
 var computerGuess = random(bands).toLowerCase();
 
-function drawUnderscore(guess) {
+function drawUnderscore(word) {
     var underscores = "";
-    for (var i = 0; i < guess.length; i++) {
+    for (var i = 0; i < word.length; i++) {
         underscores += '_ ';
     }
+    console.log(underscores.length);
     document.getElementById("word").textContent = underscores;
 }
 
@@ -35,21 +36,6 @@ document.onkeyup = function(event) {
         } 
     }
 
-    if (tries <= 0) {
-        ++losses;
-        guesses = "";
-        userGuess = "";
-        tries = 9;
-        computerGuess = random(bands);
-        drawUnderscore(computerGuess);
-    }
-
-    var winsText = document.getElementById("wins");
-    winsText.textContent = wins;
-
-    var lossesText = document.getElementById("losses");
-    lossesText.textContent = losses;
-
     if (!correctLetter) {
         if (guesses.length > 0) {
             guesses += ', ';
@@ -58,9 +44,29 @@ document.onkeyup = function(event) {
         --tries;
     } 
 
+    var triesText = document.getElementById("tries");
+    triesText.textContent = tries;
+
+    if (tries <= 0) {
+        ++losses;
+        guesses = "";
+        userGuess = "";
+        tries = 9;
+        computerGuess = random(bands);
+        drawUnderscore(computerGuess);
+        triesText.textContent = tries;
+    }
+
+    var winsText = document.getElementById("wins");
+    winsText.textContent = wins;
+
+    var lossesText = document.getElementById("losses");
+    lossesText.textContent = losses;
+
+
+
     var userGuessesText = document.getElementById("guesses");
     userGuessesText.textContent = guesses;
 
-    var triesText = document.getElementById("tries");
-    triesText.textContent = tries;
+
 };
