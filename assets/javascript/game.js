@@ -1,9 +1,10 @@
-var bands = ["Blondie", "Prince", "Tavares", "Chic"];
+var bands = ["Blondie", "Prince", "Tavares", "Chic", "SuperMaxx"];
 
 var wins = 0;
 var losses = 0;
 var tries = 9;
 var guesses = "";
+var startGame = false;
 
 function random(array) {
     return array[Math.floor(Math.random() * array.length)];
@@ -49,6 +50,12 @@ function gameReset() {
 }
 
 document.onkeyup = function(event) {
+    if (!startGame) {
+        var parent = document.getElementById("parent");
+        var child = document.getElementById("initial-text");
+        parent.removeChild(child);
+        startGame = true;
+    }
 
     var userGuess = event.key.toLowerCase();
     var correctLetter = false;
@@ -80,6 +87,7 @@ document.onkeyup = function(event) {
 
     if (checkDone(secret,computerGuess)) {
         ++wins;
+        document.getElementById("image").src = "assets/images/" + computerGuess +  ".jpg";
         gameReset();
     }
 

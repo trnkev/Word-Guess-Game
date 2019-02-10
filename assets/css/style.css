@@ -38,6 +38,13 @@ p {
     text-align: center;
 }
 
+#initial-text {
+    font-weight: bold;
+    font-size: 30px;
+    padding: 20px;
+    color: yellow;
+}
+
 .container {
     width: 550px;
     min-height: 60vh;
@@ -57,4 +64,5 @@ p {
 img {
     display: block;
     margin: 0 auto;
+    width: 50%;
 }
