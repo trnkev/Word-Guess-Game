@@ -8,3 +8,18 @@
 ### Why is the project useful?
 This game is useful because it teaches a full-stack web developer computer logic, web-page manipulation, and project management. This game uses JavaScript for front-end web development, and the code written updates fields (wins, losses, word, guesses, etc.) on the web page. From the client's point-of-view (POV) this project looks straight forward and easy to use, but from the developer's POV, we have to seperate parts of the what we want the game to do (update wins/losses/guesses/words/images). Working on this game has taught me how to find and use resourses outside of class, build understanding on the grammar to communicate with the computer effectively. 
 
+### How users can get started with the project
+1. Start with design. The design helped me because it is easy and once I completed it I felt a sense of accomplishment to pull through this project to the end. 
+2. Break what you see on the screen into parts.
+3. Work on what you know and complete it. 
+4. Add extras like images, audio, etc. 
+5. Clean up the code so others accessing it may read it like a book.
+
+### Where users can get help with your project
+Resources to get help for this project is:
+- w3schools.com
+- Mozilla JavaScript documentation
+- Stack Overflow
+
+### Who maintains and contributes to the project
+I, Kevin Tran, maintains and contributes to this project. 
