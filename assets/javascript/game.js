@@ -1,8 +1,10 @@
-var bands = ["Blondie", "Prince", "Tavares", "Chic", "SuperMaxx"];
+var bands = ["Blondie", "Prince", "Tavares", "Chic", 
+             "SuperMax", "Rick James", "Michael Jackson", "Bee Gees",
+             "Gloria Gaynor", "The Pointer Sisters", "Donna Summer", "Diana Ross"];
 
 var wins = 0;
 var losses = 0;
-var tries = 9;
+var tries = 12;
 var guesses = "";
 var startGame = false;
 
@@ -16,10 +18,14 @@ function drawUnderscore(word) {
      var underscores = [];
      var display = "";
     for (var i = 0; i < word.length; i++) {
-        underscores.push("_");
-        display += underscores[i] + " "
+        if (word[i] === " ") {
+            underscores.push(" ");
+        } else {
+            underscores.push("_");
+        }
+        display += underscores[i] + "&nbsp;"
     }
-    document.getElementById("word").textContent = display;
+    document.getElementById("word").innerHTML = display;
     return underscores;
 }
 
@@ -35,15 +41,15 @@ var secret = drawUnderscore(computerGuess);
 function updateUnderscores(array) {
     var display = "";
     for (item of array) {
-        display += item + " ";
+        display += item + "&nbsp;";
     }
-    document.getElementById("word").textContent = display;
+    document.getElementById("word").innerHTML = display;
 }
 
 function gameReset() {
     guesses = "";
     userGuess = "";
-    tries = 9;
+    tries = 12;
     computerGuess = random(bands).toLowerCase();
     secret = drawUnderscore(computerGuess);
     document.getElementById("tries").textContent = tries;
