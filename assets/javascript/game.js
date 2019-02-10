@@ -13,12 +13,13 @@ function random(array) {
 var computerGuess = random(bands).toLowerCase();
 
 function drawUnderscore(word) {
-     var underscores = "";
+     var underscores = [];
+     var display = "";
     for (var i = 0; i < word.length; i++) {
-        underscores += '_ ';
+        underscores.push("_");
+        display += underscores[i] + " "
     }
-    console.log(underscores.length);
-    document.getElementById("word").textContent = underscores;
+    document.getElementById("word").textContent = display;
     return underscores;
 }
 
@@ -55,9 +56,9 @@ document.onkeyup = function(event) {
     for (var i = 0; i < computerGuess.length; i++) {
         if (userGuess === computerGuess[i]) {
             correctLetter = true;
-            var res = secret.replace(secret[2*i],userGuess);
-            document.getElementById("word").textContent = res;
-            secret = res;
+            // var res = secret.replace(secret[2*i],userGuess);
+            // document.getElementById("word").textContent = res;
+            // secret = res;
             //break;
         } 
     }
