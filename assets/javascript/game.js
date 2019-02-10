@@ -4,7 +4,6 @@ var wins = 0;
 var losses = 0;
 var tries = 9;
 var guesses = "";
-var correctWord = "";
 
 function random(array) {
     return array[Math.floor(Math.random() * array.length)];
@@ -23,20 +22,22 @@ function drawUnderscore(word) {
     return underscores;
 }
 
-function checkWord(wordA, wordB) {
-    var word = "";
-    for (var i = 0; i < wordA.length; i++) {
-        for (var j = 0; j < wordB.length; j++) {
-            // store the correct word
-            if (wordA[i] === wordB[j]) word = word + wordB[j];
-        }
+function checkDone(array, word) {
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] !== word[i]) return false;
     }
-    if (word === wordB) return true;
-    return false;
+    return true;
 }
 
 var secret = drawUnderscore(computerGuess);
 
+function updateUnderscores(array) {
+    var display = "";
+    for (item of array) {
+        display += item + " ";
+    }
+    document.getElementById("word").textContent = display;
+}
 
 function gameReset() {
     guesses = "";
@@ -56,10 +57,8 @@ document.onkeyup = function(event) {
     for (var i = 0; i < computerGuess.length; i++) {
         if (userGuess === computerGuess[i]) {
             correctLetter = true;
-            // var res = secret.replace(secret[2*i],userGuess);
-            // document.getElementById("word").textContent = res;
-            // secret = res;
-            //break;
+            secret[i] = userGuess;
+            updateUnderscores(secret);
         } 
     }
 
@@ -79,7 +78,7 @@ document.onkeyup = function(event) {
         gameReset();
     }
 
-    if (checkWord(correctWord,computerGuess)) {
+    if (checkDone(secret,computerGuess)) {
         ++wins;
         gameReset();
     }
