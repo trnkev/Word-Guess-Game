@@ -50,15 +50,17 @@ function gameReset() {
 }
 
 document.onkeyup = function(event) {
+    var userGuess = event.key.toLowerCase();
+    var correctLetter = false;
+
     if (!startGame) {
         var parent = document.getElementById("parent");
         var child = document.getElementById("initial-text");
         parent.removeChild(child);
         startGame = true;
+        correctLetter = true;
+        userGuess = "";
     }
-
-    var userGuess = event.key.toLowerCase();
-    var correctLetter = false;
 
     // Checks letter of user's guess to word in computer's mind
     for (var i = 0; i < computerGuess.length; i++) {
