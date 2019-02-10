@@ -6,7 +6,7 @@
 - When the user wins, the previous image on display changes to the image of the band they guessed correctly. 
 
 ### Why is the project useful?
-This game is useful because it teaches a full-stack web developer computer logic, web-page manipulation, and project management. This game uses JavaScript for front-end web development, and the code written updates fields (wins, losses, word, guesses, etc.) on the web page. From the client's point-of-view (POV) this project looks straight forward and easy to use, but from the developer's POV, we have to seperate parts of the what we want the game to do (update wins/losses/guesses/words/images). Working on this game has taught me how to find and use resourses outside of class, build understanding on the grammar to communicate with the computer effectively. 
+This game is useful because it teaches a full-stack web developer computer logic, web-page manipulation, and project management. This game uses JavaScript for front-end web development, and the code written updates fields (wins, losses, word, guesses, etc.) on the web page. From the client's point-of-view (POV) this project looks straight forward and easy to use, but from the developer's POV, we have to seperate parts of what we want the game to do (update wins/losses/guesses/words/images). Working on this game has taught me how to find and use resourses outside of class, build understanding on the grammar to communicate with the computer effectively. 
 
 ### How users can get started with the project
 1. Start with design. The design helped me because it is easy and once I completed it I felt a sense of accomplishment to pull through this project to the end. 
