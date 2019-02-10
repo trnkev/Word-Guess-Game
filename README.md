@@ -20,6 +20,7 @@ Resources to get help for this project is:
 - w3schools.com
 - Mozilla JavaScript documentation
 - Stack Overflow
+- Wikimedia Commons for images.
 
 ### Who maintains and contributes to the project
 I, Kevin Tran, maintains and contributes to this project. 
